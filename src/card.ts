@@ -6,4 +6,5 @@ export const Card = styled.div`
   min-height: 500px;
   align-items: center;
   justify-content: center;
+  color: ${({ theme }) => theme.patterns.checker};
 `;
