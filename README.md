@@ -24,3 +24,9 @@ following key configurations:
 This configuration is necessary because Create React App doesn't allow direct webpack modifications without ejecting.
 CRACO (Create React App Configuration Override) provides a way to customize the webpack configuration while keeping the
 benefits of Create React App.
+
+### Alternative setups
+
+| Branch     | Description                       |
+|------------|-----------------------------------|
+| `base-url` | Example with tsconfig paths setup |
