@@ -1,46 +1,26 @@
-# Getting Started with Create React App
+# Material UI with styled-components and SASS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> ⚠️ **Warning**: Using styled-components with Material-UI is not recommended for new projects as this approach is
+> deprecated. This example is intended for legacy projects that need to maintain styled-components integration.
+> For new projects, it's recommended to use Material-UI's default emotion-based styling engine.
 
-## Available Scripts
 
-In the project directory, you can run:
+This project demonstrates how to integrate Material-UI version 5 with styled-components in a React 18 application. 
+By default, Material-UI v5 uses emotion as its styling engine, but this setup shows how to configure it to work seamlessly with styled-components instead.
 
-### `npm start`
+### How It Works
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The integration between Material-UI and styled-components is achieved through the `@mui/styled-engine-sc` package, which
+acts as a bridge between the two libraries. Here's how it works:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The `craco.config.js` file is crucial for configuring webpack to use styled-components with Material-UI. It includes the
+following key configurations:
 
-### `npm test`
+1. Webpack aliases that replace the default Material-UI styling engine (emotion) with styled-components
+2. Enable SASS in project
+3. Override of the Material-UI styled-engine package to use `@mui/styled-engine-sc`
+4. Override Jest configuration nam map style engine to `@mui/styled-engine-sc` in tests 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+This configuration is necessary because Create React App doesn't allow direct webpack modifications without ejecting.
+CRACO (Create React App Configuration Override) provides a way to customize the webpack configuration while keeping the
+benefits of Create React App.
